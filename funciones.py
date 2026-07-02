@@ -31,24 +31,20 @@ def añadir_estudiante(lista):
             edad_estudiante = int(input("Ingrese la edad del estudiante: "))
             if edad_estudiante > 0 :
                 break
-            elif:
+            else:
                 print("La edad debe ser un número entero mayor que cero.")
         while True:
             nota_estudiante = float(input("Ingrese la nota del estudiante: "))
             if 1 <= nota_estudiante <= 7 :
-                if nota_estudiante >= 4:
-                    estado = "APROBADO"
-                else:
-                    estado = "DESAPROBADO"
                 break
-            elif:
-            print("La nota debe ser un número decimal entre 1.0 y 7.0.")
+            else:
+                print("La nota debe ser un número decimal entre 1.0 y 7.0.")
 
         alumno = {
         "nombre": nombre_estudiante,
         "edad": edad_estudiante,
         "nota": nota_estudiante,
-        "estado": estado
+        "estado": ""
     }
 
         lista.append(alumno)
@@ -58,18 +54,25 @@ def añadir_estudiante(lista):
         print("Ingrese un tipo de dato válido")
 
 def buscar_estudiante(lista):
-    estudiante_b = input("Ingrese el nombre del estudiante: ")
-    if estudiante not in lista:
+    if not lista:
         print("No hay estudiantes registrados")
         return
-    else:
-        for i, estudiante in enumerate(lista):
-            if estudiante_b == estudiante["nombre"] :
-                print(str(i+1)+".")
-                print("Nombre:", estudiante["nombre"])
-                print("Edad:", estudiante["edad"])
-                print("Nota:", estudiante["nota"])
-                print("Estado:", estudiante["estado"])
+    
+    estudiante_b = input("Ingrese el nombre del estudiante: ")
+    encontrado = False
+    
+    for i, estudiante in enumerate(lista):
+        if estudiante_b == estudiante["nombre"]:
+            print(str(i+1) + ".")
+            print("Nombre:", estudiante["nombre"])
+            print("Edad:", estudiante["edad"])
+            print("Nota:", estudiante["nota"])
+            print("Estado:", estudiante["estado"])
+            encontrado = True
+    
+    if not encontrado:
+        print("El estudiante no está registrado")
+
             
 
 def mostrar_estudiante(lista):
@@ -84,5 +87,29 @@ def mostrar_estudiante(lista):
         print("Nota:", estudiante["nota"])
         print("Estado:", estudiante["estado"])
         print("******************************************** ")
+
+
+def eliminar_estudiante(lista):
+    if not lista:
+        print("No hay estudiantes registrados")
+        return
+    estudiante_e = input("Ingrese el nombre del estudiante que desea eliminar: ")
+    if estudiante not in lista:
+        print("No hay estudiantes registrados")
+        return
+    else:
+        for estudiante in lista :
+            if estudiante_e == estudiante["nombre"] :
+                lista.pop(estudiante)
+
+def actualizar_estado(lista):
+    if not lista :
+        print("No hay estudiantes registrados")
+        return
+    for estudiante in lista:
+        if estudiante["nota"] >= 4 :
+            estudiante["estado"] = "APROBADO"
+        elif estudiante["nota"] <= 4 :
+            estudiante["estado"] = "REPROBADO"
     
 

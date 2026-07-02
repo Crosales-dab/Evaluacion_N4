@@ -1,5 +1,5 @@
 #Importar
-from funciones import menu, leer_opcion, añadir_estudiante, buscar_estudiante, mostrar_estudiante
+from funciones import menu, leer_opcion, añadir_estudiante, buscar_estudiante, mostrar_estudiante, eliminar_estudiante, actualizar_estado
 
 #Variables pre-definidas 
 lista_estudiantes = []
