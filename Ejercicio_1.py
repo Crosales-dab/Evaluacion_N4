@@ -1,9 +1,8 @@
 #Importar
-from funciones import menu, leer_opcion
-
+from funciones import menu, leer_opcion, añadir_estudiante, buscar_estudiante, mostrar_estudiante
 
 #Variables pre-definidas 
-lista_alumnos = []
+lista_estudiantes = []
 activo = True 
 
 #Desarrollo
@@ -12,15 +11,15 @@ while activo:
     opcion = leer_opcion()
 
     if opcion == 1 :
-        agregar_estudiante()
+        añadir_estudiante(lista_estudiantes )
     elif opcion == 2 :
-        buscar_estudiante()
+        buscar_estudiante(lista_estudiantes )
     elif opcion == 3 :
-        eliminar_estudiante()
+        eliminar_estudiante(lista_estudiantes )
     elif opcion == 4 :
-        actualizar_estado()
+        actualizar_estado(lista_estudiantes )
     elif opcion == 5 :
-        mostrar_estudiantes()
+        mostrar_estudiante(lista_estudiantes )
     else:
         print("“Gracias por usar el sistema. Vuelva Pronto”")
         activo = False

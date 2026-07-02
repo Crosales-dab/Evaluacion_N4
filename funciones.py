@@ -18,3 +18,71 @@ def leer_opcion() :
                 print("Debe ingresar una opción válida.")
     except ValueError:
         print("Debe ingresar una opción válida.")
+
+def añadir_estudiante(lista):
+    try:
+        while True:
+            nombre_estudiante = input("Ingrese el nombre del estudiante: ")
+            if nombre_estudiante != "" :
+                break
+            else:
+                print("El nombre no puede estar vacío ni ser solo espacios en blanco.")
+        while True:
+            edad_estudiante = int(input("Ingrese la edad del estudiante: "))
+            if edad_estudiante > 0 :
+                break
+            elif:
+                print("La edad debe ser un número entero mayor que cero.")
+        while True:
+            nota_estudiante = float(input("Ingrese la nota del estudiante: "))
+            if 1 <= nota_estudiante <= 7 :
+                if nota_estudiante >= 4:
+                    estado = "APROBADO"
+                else:
+                    estado = "DESAPROBADO"
+                break
+            elif:
+            print("La nota debe ser un número decimal entre 1.0 y 7.0.")
+
+        alumno = {
+        "nombre": nombre_estudiante,
+        "edad": edad_estudiante,
+        "nota": nota_estudiante,
+        "estado": estado
+    }
+
+        lista.append(alumno)
+        print("Alumno agregado correctamente")
+        
+    except ValueError:
+        print("Ingrese un tipo de dato válido")
+
+def buscar_estudiante(lista):
+    estudiante_b = input("Ingrese el nombre del estudiante: ")
+    if estudiante not in lista:
+        print("No hay estudiantes registrados")
+        return
+    else:
+        for i, estudiante in enumerate(lista):
+            if estudiante_b == estudiante["nombre"] :
+                print(str(i+1)+".")
+                print("Nombre:", estudiante["nombre"])
+                print("Edad:", estudiante["edad"])
+                print("Nota:", estudiante["nota"])
+                print("Estado:", estudiante["estado"])
+            
+
+def mostrar_estudiante(lista):
+    if not lista:
+        print("No hay estudiantes registrados")
+        return
+    print("=== LISTA DE ESTUDIANTES ===")
+    for i, estudiante in enumerate(lista):
+        print(str(i+1)+".")
+        print("Nombre:", estudiante["nombre"])
+        print("Edad:", estudiante["edad"])
+        print("Nota:", estudiante["nota"])
+        print("Estado:", estudiante["estado"])
+        print("******************************************** ")
+    
+
